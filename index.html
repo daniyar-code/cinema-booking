@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="mb-4 text-warning">Белсенді кіносеанстар</h2>
+<div class="row">
+    {% for s in sessions %}
+    <div class="col-md-4 mb-4">
+        <div class="card bg-secondary text-white h-100 shadow">
+            <div class="card-body">
+                <h4 class="card-title text-warning">{{ s[1] }} <span class="badge bg-danger">{{ s[2] }}</span></h4>
+                <p class="card-text mb-1"><b>Кінотеатр:</b> {{ s[3] }} ({{ s[4] }})</p>
+                <p class="card-text mb-1"><b>Уақыты:</b> {{ s[5] }}</p>
+                <p class="card-text mb-1"><b>Бас бағасы:</b> {{ s[6] }} ₸</p>
+                <p class="card-text"><b>Бос орындар:</b> <span class="badge bg-info fs-6">{{ s[7] }}</span></p>
+                <a href="/session/{{ s[0] }}" class="btn btn-warning w-100 fw-bold">Орын таңдау</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

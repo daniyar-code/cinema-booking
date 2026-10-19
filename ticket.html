@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="col-md-6 mx-auto card bg-dark text-white border-warning p-4 text-center">
+    <h3 class="text-warning">Бронь расталды!</h3>
+    <p class="fs-5 mt-3"><b>Фильм:</b> {{ booking[1] }}</p>
+    <p class="fs-5"><b>Орын:</b> {{ booking[2] }}-қатар, {{ booking[3] }}-орын</p>
+    <p class="fs-4 text-success"><b>Төленетін сома:</b> {{ booking[4] }} ₸</p>
+    <small class="text-danger mb-3 d-block">⚠️ Төлемді 15 минут ішінде аяқтаңыз, әйтпесе орын босатылады!</small>
+    
+    <form action="/confirm_payment" method="POST">
+        <input type="hidden" name="booking_id" value="{{ booking[0] }}">
+        <button type="submit" class="btn btn-success btn-lg w-100">Kaspi QR / Карта арқылы төлеу</button>
+    </form>
+</div>
+{% endblock %}
